@@ -28,14 +28,14 @@ if st.button("Predict"):
             status.update(label="Fetching Data...", state="complete", expanded=True)
 
     
-
+            d = {1:'Kama',2:'Rosa',3:'Canadian'}
             import pickle 
             f = open('WheatClassifier.pickle','rb')
             model = pickle.load(f)
 
             predicted = model.predict([[area,perimeter,compactness,length_of_kernel,width_of_kernel,asymmetry_coefficient,length_of_kernel_groove]])
 
-            st.metric(label="Category", value=predicted[0])
+            st.metric(label="Category", value=d[predicted[0]])
 
 
     except:
